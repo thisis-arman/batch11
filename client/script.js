@@ -2,6 +2,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("successModal");
   const closeModalBtn = document.getElementById("closeModalBtn");
 
+ const batchmates = [
+  "Sabera Islam", "Rejiya Akter", "Usamong Marma", "Mohammad Arman Hossen", "Shaki Mukta",
+  "Ponkos Debnath", "Joydeb Das", "Al-Amin", "Asmaul Hosna Jerin", "Nadiatul Mariam",
+  "Azizul Hakim", "Sudipto Roy", "Ahsan Ullah Murad", "Umme Anjuman", "Kohinur Akter",
+  "Priya Saha", "Md. Omar Faruq Mahafuz", "Ankur Kanti Dev", "Tania Sultana", "Md. Sohel",
+  "Md. Hakim", "Md. Bakhtiar", "Mohin Uddin", "Rudra Nandy", "Md. Shakhawat Hossen",
+  "Mohammed Osman", "Anamika Dey", "Mahin Hossin Rahat", "Reya Dey", "Md. Saif",
+  "Md. Emarath Shahrear Mahi", "Jahedul Islam", "Suriaya Nowros", "Emon Das", "Fatema Tuz Tahera",
+  "Tanjid Hasan Saem", "Promi Guha", "Atul Prashad Mondal", "Nayan Dev", "Md. Nuralam",
+  "Yeasmin Akther", "Mohammad Armanul Haque", "Md. Masum", "Reyon Dey", "Nasrin Jahan Hera",
+  "Sumaya Sultana Rafi", "Jannatul Aima", "Dipa Biswas", "Md. Shakib", "Md. Fahim",
+  "Rami Dey", "Somia Habib", "Rokibul Kabir", "Joy Mazumder", "Nahim Uddin Azad",
+  "Depash Sen Gupta", "Md. Arif Bin Solaman", "Novel Dev", "Nadia Islam",
+  "Wahida Khanom Resma", "Aparna Rani Nathi", "Avi Das", "Uichinu Marma", "Akash Dhar",
+  "Aungsa Marma", "Mohammad Sayem Miunna", "Syeda Bibi Marium Iqra", "Minhajul Abedin Emon",
+  "Md. Shakil", "Promiz Das Niloy", "Mohammad Asraful Islam Sowrav", "Md. Sakib Uddin",
+  "Nusrat Jahan Any", "Md. Ibrahim", "Sufratun Nisa Anita", "Md. Nazrul Islam", "Abdul Mozid",
+  "Sotun Barua", "Md. Shariful Islam", "Md. Yusuf Mia", "Md. Arman Uddin", "Sachingla Marma",
+  "Uzzal Tripura", "Sourav Barua Bappi", "Md. Nijam Uddin", "Anik Dey", "Tandra Majumdar",
+  "Joya Sri Dey", "Monirul Islam", "Korban Ali", "Md. Sakib",
+  "KORBAN ALI", "MD. SAKIB", "SAZIA AKTER", "MIA RIAD KHAN DIPU", "ROYEL KANTI NATH",
+  "SOMBAIYA TRIPURA", "SETU BARUA", "SHUVO DATTA", "MD. RAKIB UDDIN", "HERO TANCHANGYA",
+  "MONGSAU MARMA", "SATWAI CHING MARMA", "ATASHE BANIK", "MD. ATAUR RAHAMAN", "PRIYA SHIL",
+  "NASRIN AKTER", "SHAHRIAR ALAM", "ASMA KHANOM", "EMON KUMAR NATH", "MD FARDIN AHSSAN",
+  "SAMBU DEB NATH", "ANTU DEVNATH", "JOYANTA DAS", "BELAYAT HOSSEN", "ATUMA MARMA",
+  "MD. HOSSAIN RAIHAN", "NILOY BARUA"
+];
+
+const namesWall = document.getElementById('names-wall');
+
+if(namesWall) {
+  batchmates.forEach(name => {
+    const badge = document.createElement('div');
+    badge.className = "px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm md:text-base text-neutral-300 hover:text-gold-400 hover:border-gold-500/50 hover:bg-gold-500/5 transition-all duration-300 cursor-default hover:-translate-y-1 shadow-sm";
+    badge.innerText = name;
+    namesWall.appendChild(badge);
+  });
+}
+
   // ১. কাউন্টডাউন টাইমার লজিক
   const targetDate = new Date("May 20, 2026 10:00:00").getTime();
 
