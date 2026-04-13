@@ -1,4 +1,4 @@
-const Registration = require("../models/Registration");
+
 
 const generateRegId = async () => {
   const count = await Registration.countDocuments();
@@ -15,7 +15,7 @@ exports.registerUser = async (req, res) => {
 
     const registrationId = await generateRegId();
 
-    const newReg = new Registration({
+    const newReg = new ({
       name,
       studentId,
       phone,
@@ -32,5 +32,25 @@ exports.registerUser = async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ message: "Server Error" });
+  }
+};
+
+exports.getUsers = async (req, res) => {
+  try {
+    console.log("users fetched");
+
+    const data = await Registration.find();
+
+    res.status(200).json({
+      success: true,
+      count: data.length,
+      data,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch users",
+    });
   }
 };
