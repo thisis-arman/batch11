@@ -42,7 +42,7 @@ if(namesWall) {
 }
 
   // ১. কাউন্টডাউন টাইমার লজিক
-  const targetDate = new Date("May 20, 2026 10:00:00").getTime();
+  const targetDate = new Date("June 10, 2026 10:00:00").getTime();
 
   const countdown = setInterval(function () {
     const now = new Date().getTime();
