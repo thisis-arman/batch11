@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="বিবিএ ব্যাচ-৭ এর চার বছরের স্মৃতিময় পথচলার এক সোনালী বিদায়। আগামী ২০শে মে, ২০২৬ অডিটোরিয়ামে আয়োজিত এই গ্র্যান্ড ফেয়ারওয়েল অনুষ্ঠানে আপনার সিট কনফার্ম করতে আজই রেজিস্ট্রেশন করুন।"
+      content="বিবিএ ব্যাচ-৭ এর চার বছরের স্মৃতিময় পথচলার এক সোনালী বিদায়। গ্র্যান্ড ফেয়ারওয়েল অনুষ্ঠানে আপনার সিট কনফার্ম করতে আজই রেজিস্ট্রেশন করুন।"
     />
     <meta
       name="keywords"
@@ -16,11 +16,11 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="BBA Farewell 2026 | চার বছরের গল্প, এক সোনালী বিদায়"
+      content="BBA Farewell 2026 | চার বছরের গল্প, এক সোনালী বিদায়"
     />
     <meta
       property="og:description"
-      content="স্মৃতি, আড্ডা আর ভালোবাসার শেষ উদযাপন। বিবিএ ব্যাচ-৭ এর গ্র্যান্ড বিদায় অনুষ্ঠানের বিস্তারিত এবং রেজিস্ট্রেশন লিংক এখানে।"
+      content="স্মৃতি, আড্ডা আর ভালোবাসার শেষ উদযাপন। বিবিএ ব্যাচ-৭ এর গ্র্যান্ড বিদায় অনুষ্ঠানের বিস্তারিত এবং রেজিস্ট্রেশন লিংক এখানে।"
     />
     <meta
       property="og:image"
@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@400;600&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -84,6 +84,356 @@
       .group:hover .gold-underline {
         background-size: 100% 3px;
       }
+
+      /* ====================================================
+         PHOTO FRAME SECTION — intentionally its own world.
+         Purple/magenta/gold palette, Noto Sans Bengali type,
+         scoped under #frame-scope so it never bleeds into
+         the gold/night tokens used by the rest of the page.
+      ==================================================== */
+      #frame-scope {
+        --plum: #3b0764;
+        --magenta: #be185d;
+        --pink: #f472b6;
+        --ink: #18121f;
+        --ink-2: #231a2e;
+        --cream: #fdf4ff;
+        --frame-gold: #fcd34d;
+        --line: rgba(253, 244, 255, 0.1);
+        --muted: rgba(253, 244, 255, 0.55);
+        font-family: "Noto Sans Bengali", "Hind Siliguri", sans-serif;
+        background: var(--ink);
+        position: relative;
+        overflow: hidden;
+      }
+      #frame-scope * {
+        box-sizing: border-box;
+      }
+      #frame-scope .ff-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 900px 500px at 15% -10%, rgba(190, 24, 93, 0.25), transparent 60%),
+          radial-gradient(ellipse 700px 500px at 100% 10%, rgba(59, 7, 100, 0.35), transparent 60%);
+        pointer-events: none;
+      }
+      #frame-scope .ff-wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 72px 20px 88px;
+        position: relative;
+        z-index: 1;
+        color: var(--cream);
+      }
+      #frame-scope .ff-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--frame-gold);
+        background: rgba(252, 211, 77, 0.08);
+        border: 1px solid rgba(252, 211, 77, 0.25);
+        padding: 6px 14px;
+        border-radius: 30px;
+        margin-bottom: 18px;
+      }
+      #frame-scope .ff-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--frame-gold);
+        box-shadow: 0 0 8px var(--frame-gold);
+      }
+      #frame-scope .ff-header {
+        text-align: center;
+        margin-bottom: 34px;
+      }
+      #frame-scope h2.ff-title {
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 800;
+        line-height: 1.25;
+        margin: 0 0 10px;
+        background: linear-gradient(90deg, var(--cream) 30%, var(--pink) 70%, var(--frame-gold) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      #frame-scope .ff-header p {
+        color: var(--muted);
+        font-size: 15px;
+        margin: 0;
+        font-weight: 400;
+      }
+      #frame-scope .ff-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        align-items: start;
+      }
+      @media (max-width: 860px) {
+        #frame-scope .ff-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      #frame-scope .ff-panel {
+        background: linear-gradient(165deg, var(--ink-2), rgba(35, 26, 46, 0.4));
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 26px;
+      }
+      #frame-scope .ff-panel h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--cream);
+      }
+      #frame-scope .ff-panel h3 .ff-num {
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--magenta), var(--pink));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 800;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        flex-shrink: 0;
+      }
+      #frame-scope .ff-dropzone {
+        border: 2px dashed rgba(244, 114, 182, 0.35);
+        border-radius: 16px;
+        padding: 38px 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: border-color 0.2s, background 0.2s;
+        background: rgba(244, 114, 182, 0.03);
+      }
+      #frame-scope .ff-dropzone:hover,
+      #frame-scope .ff-dropzone.drag {
+        border-color: var(--pink);
+        background: rgba(244, 114, 182, 0.08);
+      }
+      #frame-scope .ff-dropzone svg {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 10px;
+        color: var(--pink);
+      }
+      #frame-scope .ff-dropzone .ff-main-txt {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--cream);
+        margin: 0 0 4px;
+      }
+      #frame-scope .ff-dropzone .ff-sub-txt {
+        font-size: 12.5px;
+        color: var(--muted);
+        margin: 0;
+      }
+      #frame-scope .ff-dropzone.has-file {
+        border-color: rgba(74, 222, 128, 0.4);
+        background: rgba(74, 222, 128, 0.05);
+      }
+      #frame-scope .ff-dropzone .ff-file-ok {
+        display: none;
+        font-size: 13.5px;
+        color: #86efac;
+        font-weight: 600;
+      }
+      #frame-scope .ff-dropzone.has-file .ff-file-ok {
+        display: block;
+      }
+      #frame-scope .ff-dropzone.has-file .ff-main-txt,
+      #frame-scope .ff-dropzone.has-file .ff-sub-txt {
+        display: none;
+      }
+      #frame-scope #ffFileInput {
+        display: none;
+      }
+      #frame-scope .ff-controls {
+        margin-top: 20px;
+      }
+      #frame-scope .ff-controls.disabled {
+        opacity: 0.35;
+        pointer-events: none;
+      }
+      #frame-scope .ff-ctrl-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      #frame-scope .ff-ctrl-row label {
+        font-size: 13px;
+        color: var(--muted);
+        min-width: 60px;
+        font-family: "Inter", sans-serif;
+      }
+      #frame-scope input[type="range"] {
+        flex: 1;
+        -webkit-appearance: none;
+        height: 5px;
+        border-radius: 6px;
+        background: rgba(253, 244, 255, 0.12);
+        outline: none;
+      }
+      #frame-scope input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--magenta), var(--pink));
+        cursor: pointer;
+        border: 2px solid var(--cream);
+      }
+      #frame-scope .ff-drag-hint {
+        font-size: 12px;
+        color: var(--muted);
+        text-align: center;
+        margin-top: 10px;
+        font-family: "Inter", sans-serif;
+      }
+      #frame-scope .ff-btn {
+        width: 100%;
+        padding: 15px;
+        border-radius: 13px;
+        border: none;
+        font-family: "Noto Sans Bengali", "Hind Siliguri", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        background: linear-gradient(135deg, var(--plum), var(--magenta) 55%, var(--pink));
+        color: #fff;
+        margin-top: 6px;
+        transition: filter 0.15s, transform 0.1s;
+        box-shadow: 0 8px 24px -8px rgba(190, 24, 93, 0.6);
+      }
+      #frame-scope .ff-btn:hover {
+        filter: brightness(1.1);
+      }
+      #frame-scope .ff-btn:active {
+        transform: scale(0.985);
+      }
+      #frame-scope .ff-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        box-shadow: none;
+      }
+      #frame-scope .ff-btn.ghost {
+        background: transparent;
+        border: 1px solid var(--line);
+        box-shadow: none;
+        color: var(--muted);
+        font-size: 13.5px;
+        font-weight: 600;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      #frame-scope .ff-btn.ghost:hover {
+        color: var(--cream);
+        border-color: rgba(253, 244, 255, 0.25);
+        filter: none;
+      }
+      #frame-scope .ff-preview-stage {
+        aspect-ratio: 1 / 1;
+        border-radius: 16px;
+        background: repeating-conic-gradient(#1c1622 0% 25%, #211a28 0% 50%) 50% / 22px 22px;
+        overflow: hidden;
+        position: relative;
+        touch-action: none;
+        cursor: grab;
+        border: 1px solid var(--line);
+      }
+      #frame-scope .ff-preview-stage.grabbing {
+        cursor: grabbing;
+      }
+      #frame-scope .ff-preview-stage canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      #frame-scope .ff-preview-empty {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13.5px;
+        text-align: center;
+        padding: 30px;
+      }
+      #frame-scope .ff-preview-empty svg {
+        width: 34px;
+        height: 34px;
+        opacity: 0.4;
+      }
+      #frame-scope .ff-frame-select {
+        display: flex;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      #frame-scope .ff-frame-opt {
+        flex: 1;
+        border-radius: 12px;
+        padding: 3px;
+        cursor: pointer;
+        border: 2px solid var(--line);
+        transition: border-color 0.2s;
+        background: var(--ink);
+      }
+      #frame-scope .ff-frame-opt.active {
+        border-color: var(--pink);
+      }
+      #frame-scope .ff-frame-opt .ff-swatch {
+        height: 46px;
+        border-radius: 9px;
+      }
+      #frame-scope .ff-frame-opt .ff-label {
+        font-size: 11px;
+        text-align: center;
+        color: var(--muted);
+        padding: 6px 0 2px;
+        font-family: "Inter", sans-serif;
+      }
+      #frame-scope .ff-footnote {
+        text-align: center;
+        margin-top: 44px;
+        color: var(--muted);
+        font-size: 12.5px;
+      }
+      #frame-scope .ff-footnote .ff-heart {
+        color: var(--pink);
+      }
+
+      /* Seam between the gold/night world and the purple frame world */
+      .seam {
+        position: relative;
+        height: 64px;
+        background: linear-gradient(180deg, #0a0a0a 0%, #18121f 100%);
+      }
+      .seam::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 28px;
+        background: linear-gradient(180deg, transparent, rgba(252, 211, 77, 0.6));
+      }
     </style>
   </head>
   <body class="bg-night-900 text-neutral-100 relative overflow-x-hidden">
@@ -135,10 +485,10 @@
         </p>
 
         <a
-          href="/client/photo-frame.html"
+          href="#photo-frame"
           class="group relative inline-flex items-center justify-center px-8 py-4 font-semibold text-night-900 transition-all duration-300 ease-in-out rounded-full bg-gradient-to-r from-gold-400 to-gold-600 hover:shadow-lg hover:shadow-gold-500/30 hover:scale-105"
         >
-          <span class="relative z-10">আপনার সিট কনফার্ম করুন</span>
+          <span class="relative z-10">ফটো ফ্রেম তৈরি করুন</span>
           <div
             class="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 group-hover:scale-105 group-hover:bg-white/20"
           ></div>
@@ -408,44 +758,91 @@
             >
               ফি
             </h4>
-            <p class="text-3xl font-bold text-gold-400 font-sans">৳ 1200</p>
+            <p class="text-3xl font-bold text-gold-400 font-sans">৳ 1000</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- <section id="register" class="relative py-32 px-6">
-      <div
-        class="absolute inset-0 bg-gradient-to-b from-night-900 to-night-800 -z-10"
-      ></div>
-      <div class="max-w-2xl mx-auto text-center">
-        <div class="mb-12">
-          <h2
-            class="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600"
-          >
-            রেজিস্ট্রেশন করুন
-          </h2>
-          <p class="text-neutral-400">
-            নিচের বাটনে ক্লিক করে গুগল ফর্মটি পূরণ করুন
+    <!-- Seam: bridges the gold/night world into the purple frame-tool world -->
+    <div class="seam"></div>
+
+    <!-- ============================================================
+         PHOTO FRAME GENERATOR — embedded section
+         Deliberately its own visual identity (purple/pink/gold),
+         scoped entirely under #frame-scope so it doesn't inherit
+         or leak Tailwind utility resets from the rest of the page.
+    ============================================================ -->
+    <section id="photo-frame" data-frame-section>
+      <div id="frame-scope">
+        <div class="ff-bg"></div>
+        <div class="ff-wrap">
+          <div class="ff-header">
+            <div class="ff-eyebrow"><span class="ff-dot"></span> উত্তরণ ২০২৬ · ফেয়ারওয়েল</div>
+            <h2 class="ff-title">স্মৃতি থেকে স্বপ্নে</h2>
+            <p>তোমার ছবি আপলোড করো, ফ্রেম বানাও, আর ইভেন্টের জন্য শেয়ার করো ✨ কোনো লগইন প্রয়োজন নেই</p>
+          </div>
+
+          <div class="ff-grid">
+            <!-- LEFT: Upload + Controls -->
+            <div class="ff-panel">
+              <h3><span class="ff-num">১</span> ছবি আপলোড করো</h3>
+
+              <div class="ff-dropzone" id="ffDropzone">
+                <input type="file" id="ffFileInput" accept="image/*" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4M12 4l-4 4M12 4l4 4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <p class="ff-main-txt">ছবি টেনে আনো বা ক্লিক করো</p>
+                <p class="ff-sub-txt">JPG, PNG — যেকোনো সাইজ</p>
+                <p class="ff-file-ok">✓ ছবি আপলোড হয়েছে — পাশে প্রিভিউ দেখো</p>
+              </div>
+
+              <div class="ff-controls disabled" id="ffControls">
+                <div class="ff-ctrl-row">
+                  <label>জুম</label>
+                  <input type="range" id="ffZoomSlider" min="100" max="300" value="100" />
+                </div>
+                <p class="ff-drag-hint">প্রিভিউতে ছবি ড্র্যাগ করে পজিশন ঠিক করো</p>
+
+                <h3 style="margin-top: 24px"><span class="ff-num">২</span> ফ্রেম বেছে নাও</h3>
+                <div class="ff-frame-select" id="ffFrameSelect">
+                  <div class="ff-frame-opt active" data-frame="0">
+                    <div class="ff-swatch" style="background: linear-gradient(135deg, #3b0764, #be185d 60%, #f472b6)"></div>
+                    <div class="ff-label">সানসেট</div>
+                  </div>
+                  <div class="ff-frame-opt" data-frame="1">
+                    <div class="ff-swatch" style="background: linear-gradient(135deg, #1e1b4b, #5b21b6 55%, #c026d3)"></div>
+                    <div class="ff-label">মিডনাইট</div>
+                  </div>
+                  <div class="ff-frame-opt" data-frame="2">
+                    <div class="ff-swatch" style="background: linear-gradient(135deg, #831843, #be185d 50%, #fcd34d)"></div>
+                    <div class="ff-label">গোল্ডেন</div>
+                  </div>
+                </div>
+
+                <button class="ff-btn" id="ffDownloadBtn" disabled>ডাউনলোড করো</button>
+                <button class="ff-btn ghost" id="ffResetBtn">নতুন করে শুরু করো</button>
+              </div>
+            </div>
+
+            <!-- RIGHT: Preview -->
+            <div class="ff-panel">
+              <h3><span class="ff-num">৩</span> প্রিভিউ</h3>
+              <div class="ff-preview-stage" id="ffStage">
+                <canvas id="ffCanvas" width="1000" height="1000"></canvas>
+                <div class="ff-preview-empty" id="ffEmptyState">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+                  ছবি আপলোড করলে এখানে প্রিভিউ দেখা যাবে
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="ff-footnote">
+            তৈরি হয়েছে উত্তরণ ২০২৬ ব্যাচের জন্য <span class="ff-heart">♥</span> — কোনো ডেটা সার্ভারে সংরক্ষণ করা হয় না
           </p>
         </div>
-
-        <div
-          class="bg-night-800/50 backdrop-blur-lg p-12 rounded-3xl border border-white/5 shadow-2xl shadow-gold-500/10 flex justify-center"
-        >
-          <a
-            href="https://forms.gle/6vh8ujdyADqw3UBe7"
-            target="_blank"
-            class="group relative inline-flex items-center justify-center px-10 py-5 font-bold text-xl text-night-900 transition-all duration-300 ease-in-out rounded-xl bg-gradient-to-r from-gold-400 to-gold-600 hover:shadow-lg hover:shadow-gold-500/40 hover:scale-105 active:scale-95"
-          >
-            <span class="relative z-10">গুগল ফর্মে রেজিস্ট্রেশন করুন</span>
-            <div
-              class="absolute inset-0 h-full w-full scale-0 rounded-xl transition-all duration-300 group-hover:scale-105 group-hover:bg-white/10"
-            ></div>
-          </a>
-        </div>
       </div>
-    </section> -->
+    </section>
 
     <section
       id="schedule"
@@ -460,13 +857,13 @@
           <h2
             class="text-3xl md:text-4xl font-bold inline-block relative pb-2 group"
           >
-            অনুষ্ঠানের সময়সূচী
+            অনুষ্ঠানের সময়সূচী
             <span
               class="absolute bottom-0 left-0 w-full h-1 gold-underline"
             ></span>
           </h2>
           <p class="text-neutral-400 mt-4">
-            স্মৃতিময় দিনটির প্রতিটি মুহূর্তের পরিকল্পনা
+            স্মৃতিময় দিনটির প্রতিটি মুহূর্তের পরিকল্পনা
           </p>
         </div>
 
@@ -488,7 +885,7 @@
                 রিপোর্টিং ও কিট বিতরণ
               </h3>
               <p class="text-neutral-400 leading-relaxed">
-                অডিটোরিয়ামে আগমন এবং আপনার বিদায় সংবর্ধনা কিট সংগ্রহ।
+                অডিটোরিয়ামে আগমন এবং আপনার বিদায় সংবর্ধনা কিট সংগ্রহ।
               </p>
             </div>
           </div>
@@ -532,7 +929,7 @@
                 মধ্যাহ্নভোজ
               </h3>
               <p class="text-neutral-400 leading-relaxed">
-                বন্ধুদের সাথে আড্ডায় এক রাজকীয় লাঞ্চ বিরতি।
+                বন্ধুদের সাথে আড্ডায় এক রাজকীয় লাঞ্চ বিরতি।
               </p>
             </div>
           </div>
@@ -554,7 +951,7 @@
                 সাংস্কৃতিক অনুষ্ঠান ও ফটোশুট
               </h3>
               <p class="text-neutral-400 leading-relaxed">
-                গান, আড্ডা এবং শেষ বারের মতো ফ্রেমবন্দি হওয়া।
+                গান, আড্ডা এবং শেষ বারের মতো ফ্রেমবন্দি হওয়া।
               </p>
             </div>
           </div>
@@ -629,7 +1026,7 @@
           <h2
             class="text-3xl md:text-4xl font-bold inline-block relative pb-2 group font-bangla"
           >
-            যাদের নিয়ে আমাদের এই পরিবার
+            যাদের নিয়ে আমাদের এই পরিবার
             <span
               class="absolute bottom-0 left-0 w-full h-1 gold-underline"
             ></span>
@@ -649,71 +1046,6 @@
         </div>
       </div>
     </section>
-    <!-- <section id="register" class="relative py-32 px-6">
-    <div class="absolute inset-0 bg-gradient-to-b from-night-900 to-night-800 -z-10"></div>
-  <div class="max-w-2xl mx-auto">
-    <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">
-          রেজিস্ট্রেশন করুন
-        </h2>
-        <p class="text-neutral-400">আপনার তথ্য দিয়ে নিচের ফর্মটি পূরণ করুন</p>
-     </div>
-
-    <div class="bg-night-800/50 backdrop-blur-lg p-8 md:p-12 rounded-3xl border border-white/5 shadow-2xl shadow-gold-500/10">
-       <form id="regForm" class="space-y-8">
-    <div class="space-y-6">
-        <div class="relative">
-            <input required type="text" id="fullName" class="peer w-full px-4 py-4 pt-6 rounded-xl bg-night-900/80 border-2 border-transparent text-white placeholder-transparent focus:outline-none focus:border-gold-500 transition-all" placeholder="Full Name" />
-            <label for="fullName" class="absolute left-4 top-1 text-neutral-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-neutral-400 peer-placeholder-shown:top-4 peer-focus:top-1 peer-focus:text-xs peer-focus:text-gold-400">Full Name</label>
-        </div>
-
-        <div class="relative font-eng">
-            <input required type="number"  max="999" id="studentId" class="peer w-full px-4 py-4 pt-6 rounded-xl bg-night-900/80 border-2 border-transparent text-white placeholder-transparent focus:outline-none focus:border-gold-500 transition-all" placeholder="Student ID" />
-            <label for="studentId" class="absolute left-4 top-1 text-neutral-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-neutral-400 peer-placeholder-shown:top-4 peer-focus:top-1 peer-focus:text-xs peer-focus:text-gold-400">Student ID</label>
-        </div>
-        <div class="relative font-eng">
-            <input required type="email"   id="email" class="peer w-full px-4 py-4 pt-6 rounded-xl bg-night-900/80 border-2 border-transparent text-white placeholder-transparent focus:outline-none focus:border-gold-500 transition-all" placeholder="Email" />
-            <label for="email" class="absolute left-4 top-1 text-neutral-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-neutral-400 peer-placeholder-shown:top-4 peer-focus:top-1 peer-focus:text-xs peer-focus:text-gold-400">Email</label>
-        </div>
-
-        <div class="relative font-eng">
-            <select required id="department" class="peer w-full px-4 py-4 pt-6 rounded-xl bg-night-900/80 border-2 border-transparent text-white appearance-none focus:outline-none focus:border-gold-500 transition-all cursor-pointer">
-                <option value=""  selected >Accounting</option>
-                <option value="management" class="bg-night-800 text-white">Management</option>
-            </select>
-            <label for="department" class="absolute left-4 top-1 text-neutral-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-neutral-400 peer-placeholder-shown:top-4 peer-focus:top-1 peer-focus:text-xs peer-focus:text-gold-400 pointer-events-none">
-                Department
-            </label>
-            <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-500">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-            </div>
-        </div>
-
-        <div class="relative font-eng">
-            <input required type="tel" id="phone" class="peer w-full px-4 py-4 pt-6 rounded-xl bg-night-900/80 border-2 border-transparent text-white placeholder-transparent focus:outline-none focus:border-gold-500 transition-all" placeholder="Mobile Number" />
-            <label for="phone" class="absolute left-4 top-1 text-neutral-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-neutral-400 peer-placeholder-shown:top-4 peer-focus:top-1 peer-focus:text-xs peer-focus:text-gold-400">Mobile Number</label>
-        </div>
-
-        <div class="p-4 bg-gold-500/10 rounded-xl border border-gold-500/20">
-            <p class="text-sm text-gold-300 text-center mb-4">
-                Send ৳1200 to bKash: <span class="font-eng font-bold text-white">017XXXXXXXX</span> (Personal)
-            </p>
-            <div class="relative font-eng">
-                <input required type="text" id="trxId" class="peer w-full px-4 py-4 pt-6 rounded-xl bg-night-900/80 border-2 border-transparent text-white placeholder-transparent focus:outline-none focus:border-gold-500 transition-all" placeholder="bKash Transaction ID" />
-                <label for="trxId" class="absolute left-4 top-1 text-neutral-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-neutral-400 peer-placeholder-shown:top-4 peer-focus:top-1 peer-focus:text-xs peer-focus:text-gold-400">bKash Transaction ID</label>
-            </div>
-        </div>
-    </div>
-
-    <button type="submit" class="w-full py-5 rounded-xl font-bold text-xl text-night-900 bg-gradient-to-r from-gold-400 to-gold-600 hover:shadow-lg hover:shadow-gold-500/40 hover:scale-[1.02] active:scale-95 transition-all duration-300">
-        সাবমিট করুন
-    </button>
-</form>
-    </div>
-  </div>
-</section> -->
 
     <footer class="py-8 text-center text-neutral-500 text-sm bg-night-900">
       <p>© 2026 BBA Batch. Created for memories. Made by</p>
@@ -750,7 +1082,7 @@
         </div>
         <h3 class="text-3xl font-bold mb-4 text-gold-400">অভিনন্দন! 🎉</h3>
         <p class="text-neutral-300 mb-8 text-lg">
-          আপনার রেজিস্ট্রেশন সফল হয়েছে।<br />দেখা হচ্ছে বিজয়ের দিনে।
+          আপনার রেজিস্ট্রেশন সফল হয়েছে।<br />দেখা হচ্ছে বিজয়ের দিনে।
         </p>
         <button
           id="closeModalBtn"
@@ -762,5 +1094,374 @@
     </div>
 
     <script src="script.js"></script>
+
+    <!-- ============================================================
+         Photo frame generator logic — scoped to #frame-scope only.
+         Wrapped in an IIFE so its variables never collide with
+         script.js (countdown timer, names wall, etc).
+    ============================================================ -->
+    <script>
+      (function () {
+        const dropzone = document.getElementById("ffDropzone");
+        const fileInput = document.getElementById("ffFileInput");
+        const stage = document.getElementById("ffStage");
+        const canvas = document.getElementById("ffCanvas");
+        const ctx = canvas.getContext("2d");
+        const emptyState = document.getElementById("ffEmptyState");
+        const controls = document.getElementById("ffControls");
+        const zoomSlider = document.getElementById("ffZoomSlider");
+        const downloadBtn = document.getElementById("ffDownloadBtn");
+        const resetBtn = document.getElementById("ffResetBtn");
+        const frameOpts = document.querySelectorAll("#frame-scope .ff-frame-opt");
+
+        const SIZE = 1000; // internal canvas resolution
+        let img = null;
+        let imgState = { scale: 1, baseScale: 1, offsetX: 0, offsetY: 0 };
+        let activeFrame = 0;
+        let dragging = false;
+        let lastX = 0,
+          lastY = 0;
+
+        const FRAME_THEMES = [
+          { name: "sunset", colors: ["#3B0764", "#BE185D", "#F472B6"], gold: "#FCD34D" },
+          { name: "midnight", colors: ["#1E1B4B", "#5B21B6", "#C026D3"], gold: "#F0ABFC" },
+          { name: "golden", colors: ["#831843", "#BE185D", "#FCD34D"], gold: "#FFF7CC" },
+        ];
+
+        const EVENT_TITLE = "উত্তরণ ২০২৬";
+        const EVENT_SUB = "স্মৃতি থেকে স্বপ্নে";
+        const EVENT_TAG = "ফেয়ারওয়েল"; // date to be added once confirmed
+        const BATCH_LABEL = "ব্যাচ ৭";
+        const COLLEGE_NAME = "ফটিকছড়ি সরকারি কলেজ";
+
+        document.fonts.ready.then(() => {
+          if (img) draw();
+        });
+        window.addEventListener("load", () =>
+          setTimeout(() => {
+            if (img) draw();
+          }, 350)
+        );
+
+        function openFilePicker() {
+          fileInput.click();
+        }
+        dropzone.addEventListener("click", openFilePicker);
+        ["dragover", "dragenter"].forEach((ev) => {
+          dropzone.addEventListener(ev, (e) => {
+            e.preventDefault();
+            dropzone.classList.add("drag");
+          });
+        });
+        ["dragleave", "dragend", "drop"].forEach((ev) => {
+          dropzone.addEventListener(ev, (e) => {
+            e.preventDefault();
+            dropzone.classList.remove("drag");
+          });
+        });
+        dropzone.addEventListener("drop", (e) => {
+          const f = e.dataTransfer.files[0];
+          if (f) loadFile(f);
+        });
+        fileInput.addEventListener("change", (e) => {
+          const f = e.target.files[0];
+          if (f) loadFile(f);
+        });
+
+        function loadFile(file) {
+          if (!file.type.startsWith("image/")) return;
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const image = new Image();
+            image.onload = () => {
+              img = image;
+              const minDim = Math.min(img.width, img.height);
+              imgState.baseScale = SIZE / minDim;
+              imgState.scale = 1;
+              imgState.offsetX = 0;
+              imgState.offsetY = 0;
+              zoomSlider.value = 100;
+              dropzone.classList.add("has-file");
+              controls.classList.remove("disabled");
+              downloadBtn.disabled = false;
+              emptyState.style.display = "none";
+              draw();
+            };
+            image.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+
+        function drawRoundedRectClip(c, x, y, w, h, r) {
+          c.beginPath();
+          c.moveTo(x + r, y);
+          c.arcTo(x + w, y, x + w, y + h, r);
+          c.arcTo(x + w, y + h, x, y + h, r);
+          c.arcTo(x, y + h, x, y, r);
+          c.arcTo(x, y, x + w, y, r);
+          c.closePath();
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, SIZE, SIZE);
+          ctx.save();
+          drawRoundedRectClip(ctx, 0, 0, SIZE, SIZE, 28);
+          ctx.clip();
+
+          ctx.fillStyle = "#1c1622";
+          ctx.fillRect(0, 0, SIZE, SIZE);
+
+          if (img) {
+            const totalScale = imgState.baseScale * imgState.scale;
+            const w = img.width * totalScale;
+            const h = img.height * totalScale;
+            const cx = SIZE / 2 + imgState.offsetX;
+            const cy = SIZE / 2 + imgState.offsetY;
+            ctx.drawImage(img, cx - w / 2, cy - h / 2, w, h);
+          }
+
+          drawCapBadge();
+          drawBanner();
+          ctx.restore();
+
+          ctx.save();
+          drawRoundedRectClip(ctx, 1, 1, SIZE - 2, SIZE - 2, 27);
+          ctx.lineWidth = 3;
+          ctx.strokeStyle = "rgba(253,244,255,0.18)";
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        function drawCapBadge() {
+          const theme = FRAME_THEMES[activeFrame];
+          const r = SIZE * 0.058;
+          const cx = SIZE - r - SIZE * 0.045;
+          const cy = r + SIZE * 0.045;
+
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, Math.PI * 2);
+          const badgeGrad = ctx.createLinearGradient(cx - r, cy - r, cx + r, cy + r);
+          badgeGrad.addColorStop(0, theme.colors[0]);
+          badgeGrad.addColorStop(1, theme.colors[1]);
+          ctx.fillStyle = badgeGrad;
+          ctx.fill();
+          ctx.lineWidth = SIZE * 0.006;
+          ctx.strokeStyle = theme.gold;
+          ctx.globalAlpha = 0.9;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+          ctx.restore();
+
+          const s = r * 0.62;
+          ctx.save();
+          ctx.translate(cx, cy - r * 0.06);
+
+          ctx.beginPath();
+          ctx.moveTo(0, -s * 0.55);
+          ctx.lineTo(s * 1.05, 0);
+          ctx.lineTo(0, s * 0.55);
+          ctx.lineTo(-s * 1.05, 0);
+          ctx.closePath();
+          ctx.fillStyle = theme.gold;
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.moveTo(-s * 0.5, s * 0.18);
+          ctx.quadraticCurveTo(0, s * 0.62, s * 0.5, s * 0.18);
+          ctx.lineTo(s * 0.5, s * 0.4);
+          ctx.quadraticCurveTo(0, s * 0.85, -s * 0.5, s * 0.4);
+          ctx.closePath();
+          ctx.fillStyle = "#FFFFFF";
+          ctx.globalAlpha = 0.95;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+
+          ctx.beginPath();
+          ctx.moveTo(s * 1.0, -s * 0.02);
+          ctx.lineTo(s * 0.92, s * 0.62);
+          ctx.lineWidth = s * 0.1;
+          ctx.lineCap = "round";
+          ctx.strokeStyle = "#FFFFFF";
+          ctx.globalAlpha = 0.95;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+
+          ctx.beginPath();
+          ctx.arc(s * 0.9, s * 0.74, s * 0.13, 0, Math.PI * 2);
+          ctx.fillStyle = theme.gold;
+          ctx.fill();
+
+          ctx.restore();
+        }
+
+        function drawBanner() {
+          const theme = FRAME_THEMES[activeFrame];
+          const bannerH = SIZE * 0.26;
+          const y0 = SIZE - bannerH;
+
+          const cut = bannerH * 0.28;
+          ctx.save();
+          ctx.beginPath();
+          ctx.moveTo(0, y0 + cut);
+          ctx.lineTo(SIZE, y0);
+          ctx.lineTo(SIZE, SIZE);
+          ctx.lineTo(0, SIZE);
+          ctx.closePath();
+          ctx.clip();
+
+          const grad = ctx.createLinearGradient(0, y0, SIZE, SIZE);
+          grad.addColorStop(0, theme.colors[0]);
+          grad.addColorStop(0.55, theme.colors[1]);
+          grad.addColorStop(1, theme.colors[2]);
+          ctx.fillStyle = grad;
+          ctx.fillRect(0, y0 - cut, SIZE, bannerH + cut);
+
+          ctx.globalAlpha = 0.18;
+          const seedPositions = [
+            [60, SIZE - 30],
+            [140, SIZE - 90],
+            [220, SIZE - 50],
+            [320, SIZE - 110],
+            [420, SIZE - 40],
+            [560, SIZE - 95],
+            [660, SIZE - 35],
+            [760, SIZE - 100],
+            [860, SIZE - 55],
+            [930, SIZE - 20],
+            [40, SIZE - 130],
+            [900, SIZE - 130],
+          ];
+          seedPositions.forEach((p, i) => {
+            ctx.beginPath();
+            ctx.fillStyle = i % 2 === 0 ? "#ffffff" : theme.gold;
+            ctx.arc(p[0], p[1], 4.5, 0, Math.PI * 2);
+            ctx.fill();
+          });
+          ctx.globalAlpha = 1;
+          ctx.restore();
+
+          ctx.save();
+          ctx.beginPath();
+          ctx.moveTo(0, y0 + cut);
+          ctx.lineTo(SIZE, y0);
+          ctx.lineWidth = 4;
+          ctx.strokeStyle = theme.gold;
+          ctx.globalAlpha = 0.85;
+          ctx.stroke();
+          ctx.restore();
+
+          const padX = SIZE * 0.065;
+          const baseY = SIZE - bannerH * 0.1;
+
+          ctx.textBaseline = "alphabetic";
+          ctx.textAlign = "left";
+
+          ctx.font = `600 ${Math.round(SIZE * 0.024)}px 'Noto Sans Bengali', sans-serif`;
+          ctx.fillStyle = "rgba(255,255,255,0.80)";
+          ctx.fillText(`${COLLEGE_NAME}  ·  ${BATCH_LABEL}`, padX, baseY);
+
+          ctx.font = `500 ${Math.round(SIZE * 0.022)}px 'Noto Sans Bengali', sans-serif`;
+          ctx.fillStyle = "rgba(255,255,255,0.65)";
+          ctx.fillText(EVENT_TAG, padX, baseY - SIZE * 0.04);
+
+          ctx.font = `700 ${Math.round(SIZE * 0.05)}px 'Noto Sans Bengali', sans-serif`;
+          ctx.fillStyle = theme.gold;
+          ctx.fillText(EVENT_SUB, padX, baseY - SIZE * 0.092);
+
+          ctx.font = `600 ${Math.round(SIZE * 0.028)}px 'Noto Sans Bengali', sans-serif`;
+          ctx.fillStyle = "rgba(255,255,255,0.92)";
+          ctx.fillText(EVENT_TITLE, padX, baseY - SIZE * 0.152);
+        }
+
+        function getPoint(e) {
+          if (e.touches && e.touches[0]) return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+          return { x: e.clientX, y: e.clientY };
+        }
+        function startDrag(e) {
+          if (!img) return;
+          dragging = true;
+          stage.classList.add("grabbing");
+          const p = getPoint(e);
+          lastX = p.x;
+          lastY = p.y;
+        }
+        function moveDrag(e) {
+          if (!dragging || !img) return;
+          const p = getPoint(e);
+          const rect = stage.getBoundingClientRect();
+          const scaleRatio = SIZE / rect.width;
+          imgState.offsetX += (p.x - lastX) * scaleRatio;
+          imgState.offsetY += (p.y - lastY) * scaleRatio;
+          lastX = p.x;
+          lastY = p.y;
+          draw();
+        }
+        function endDrag() {
+          dragging = false;
+          stage.classList.remove("grabbing");
+        }
+        stage.addEventListener("mousedown", startDrag);
+        window.addEventListener("mousemove", moveDrag);
+        window.addEventListener("mouseup", endDrag);
+        stage.addEventListener("touchstart", startDrag, { passive: true });
+        stage.addEventListener(
+          "touchmove",
+          (e) => {
+            e.preventDefault();
+            moveDrag(e);
+          },
+          { passive: false }
+        );
+        stage.addEventListener("touchend", endDrag);
+
+        stage.addEventListener(
+          "wheel",
+          (e) => {
+            if (!img) return;
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -5 : 5;
+            let newZoom = parseInt(zoomSlider.value) + delta;
+            newZoom = Math.max(100, Math.min(300, newZoom));
+            zoomSlider.value = newZoom;
+            imgState.scale = newZoom / 100;
+            draw();
+          },
+          { passive: false }
+        );
+
+        zoomSlider.addEventListener("input", () => {
+          imgState.scale = zoomSlider.value / 100;
+          draw();
+        });
+
+        frameOpts.forEach((opt) => {
+          opt.addEventListener("click", () => {
+            frameOpts.forEach((o) => o.classList.remove("active"));
+            opt.classList.add("active");
+            activeFrame = parseInt(opt.dataset.frame);
+            draw();
+          });
+        });
+
+        downloadBtn.addEventListener("click", () => {
+          if (!img) return;
+          const link = document.createElement("a");
+          link.download = "Uttoron2026_Farewell.png";
+          link.href = canvas.toDataURL("image/png", 1.0);
+          link.click();
+        });
+
+        resetBtn.addEventListener("click", () => {
+          img = null;
+          fileInput.value = "";
+          dropzone.classList.remove("has-file");
+          controls.classList.add("disabled");
+          downloadBtn.disabled = true;
+          emptyState.style.display = "flex";
+          ctx.clearRect(0, 0, SIZE, SIZE);
+        });
+      })();
+    </script>
   </body>
 </html>
