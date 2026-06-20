@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>উত্তরণ ২০২৬ — ফটো ফ্রেম তৈরি করুন</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#3B0764;
+    --magenta:#BE185D;
+    --pink:#F472B6;
+    --ink:#18121F;
+    --ink-2:#231A2E;
+    --cream:#FDF4FF;
+    --gold:#FCD34D;
+    --gold-dim:#A8842A;
+    --line:rgba(253,244,255,0.10);
+    --muted:rgba(253,244,255,0.55);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(190,24,93,0.25), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(59,7,100,0.35), transparent 60%),
+      var(--ink);
+    color:var(--cream);
+    font-family:'Noto Sans Bengali','Poppins',sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px;}
+
+  /* ---- Header ---- */
+  header{text-align:center;margin-bottom:34px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Poppins',sans-serif;
+    font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--gold);
+    background:rgba(252,211,77,0.08);
+    border:1px solid rgba(252,211,77,0.25);
+    padding:6px 14px;border-radius:30px;
+    margin-bottom:18px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);}
+  h1{
+    font-size:clamp(28px,5vw,46px);
+    font-weight:800;
+    line-height:1.25;
+    margin:0 0 10px;
+    background:linear-gradient(90deg, var(--cream) 30%, var(--pink) 70%, var(--gold) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  header p{color:var(--muted);font-size:15px;margin:0;font-weight:400;}
+
+  /* ---- Layout ---- */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    align-items:start;
+  }
+  @media (max-width:860px){ .grid{grid-template-columns:1fr;} }
+
+  .panel{
+    background:linear-gradient(165deg, var(--ink-2), rgba(35,26,46,0.4));
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:26px;
+  }
+  .panel h2{
+    font-size:18px;font-weight:700;margin:0 0 18px;
+    display:flex;align-items:center;gap:10px;
+    color:var(--cream);
+  }
+  .panel h2 .num{
+    width:26px;height:26px;border-radius:8px;
+    background:linear-gradient(135deg,var(--magenta),var(--pink));
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:800;color:#fff;font-family:'Poppins',sans-serif;
+    flex-shrink:0;
+  }
+
+  /* ---- Upload zone ---- */
+  .dropzone{
+    border:2px dashed rgba(244,114,182,0.35);
+    border-radius:16px;
+    padding:38px 20px;
+    text-align:center;
+    cursor:pointer;
+    transition:border-color .2s, background .2s;
+    background:rgba(244,114,182,0.03);
+  }
+  .dropzone:hover, .dropzone.drag{
+    border-color:var(--pink);
+    background:rgba(244,114,182,0.08);
+  }
+  .dropzone svg{width:38px;height:38px;margin-bottom:10px;color:var(--pink);}
+  .dropzone .main-txt{font-size:15px;font-weight:600;color:var(--cream);margin:0 0 4px;}
+  .dropzone .sub-txt{font-size:12.5px;color:var(--muted);margin:0;}
+  .dropzone.has-file{
+    border-color:rgba(74,222,128,0.4);
+    background:rgba(74,222,128,0.05);
+  }
+  .dropzone .file-ok{display:none;font-size:13.5px;color:#86efac;font-weight:600;}
+  .dropzone.has-file .file-ok{display:block;}
+  .dropzone.has-file .main-txt, .dropzone.has-file .sub-txt{display:none;}
+  #fileInput{display:none;}
+
+  /* ---- Controls ---- */
+  .controls{margin-top:20px;}
+  .controls.disabled{opacity:0.35;pointer-events:none;}
+  .ctrl-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .ctrl-row label{font-size:13px;color:var(--muted);min-width:78px;font-family:'Poppins',sans-serif;}
+  input[type="range"]{
+    flex:1;-webkit-appearance:none;height:5px;border-radius:6px;
+    background:rgba(253,244,255,0.12);outline:none;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+    background:linear-gradient(135deg,var(--magenta),var(--pink));
+    cursor:pointer;border:2px solid var(--cream);
+  }
+  .drag-hint{
+    font-size:12px;color:var(--muted);text-align:center;margin-top:10px;
+    font-family:'Poppins',sans-serif;
+  }
+
+  .btn{
+    width:100%;
+    padding:15px;border-radius:13px;border:none;
+    font-family:'Noto Sans Bengali','Poppins',sans-serif;
+    font-size:16px;font-weight:700;cursor:pointer;
+    background:linear-gradient(135deg,var(--plum),var(--magenta) 55%,var(--pink));
+    color:#fff;
+    margin-top:6px;
+    transition:filter .15s, transform .1s;
+    box-shadow:0 8px 24px -8px rgba(190,24,93,0.6);
+  }
+  .btn:hover{filter:brightness(1.1);}
+  .btn:active{transform:scale(0.985);}
+  .btn:disabled{opacity:0.4;cursor:not-allowed;box-shadow:none;}
+  .btn.ghost{
+    background:transparent;border:1px solid var(--line);box-shadow:none;
+    color:var(--muted);font-size:13.5px;font-weight:600;padding:10px;margin-top:10px;
+  }
+  .btn.ghost:hover{color:var(--cream);border-color:rgba(253,244,255,0.25);filter:none;}
+
+  /* ---- Preview / Frame ---- */
+  .preview-stage{
+    aspect-ratio:1/1;
+    border-radius:16px;
+    background:repeating-conic-gradient(#1c1622 0% 25%, #211a28 0% 50%) 50% / 22px 22px;
+    overflow:hidden;
+    position:relative;
+    touch-action:none;
+    cursor:grab;
+    border:1px solid var(--line);
+  }
+  .preview-stage.grabbing{cursor:grabbing;}
+  .preview-stage canvas{
+    position:absolute;top:0;left:0;width:100%;height:100%;
+  }
+  .preview-empty{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:10px;color:var(--muted);font-size:13.5px;text-align:center;padding:30px;
+  }
+  .preview-empty svg{width:34px;height:34px;opacity:0.4;}
+
+  .frame-select{
+    display:flex;gap:10px;margin-top:18px;
+  }
+  .frame-opt{
+    flex:1;border-radius:12px;padding:3px;cursor:pointer;
+    border:2px solid var(--line);
+    transition:border-color .2s;
+    background:var(--ink);
+  }
+  .frame-opt.active{border-color:var(--pink);}
+  .frame-opt .swatch{
+    height:46px;border-radius:9px;
+  }
+  .frame-opt .label{
+    font-size:11px;text-align:center;color:var(--muted);padding:6px 0 2px;font-family:'Poppins',sans-serif;
+  }
+
+  footer{
+    text-align:center;margin-top:50px;color:var(--muted);font-size:12.5px;
+  }
+  footer .heart{color:var(--pink);}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow"><span class="dot"></span> উত্তরণ ২০২৬ · ফেয়ারওয়েল</div>
+    <h1>স্মৃতি থেকে স্বপ্নে</h1>
+    <p>তোমার ছবি আপলোড করো, ফ্রেম বানাও, আর ইভেন্টের জন্য শেয়ার করো ✨ কোনো লগইন প্রয়োজন নেই</p>
+  </header>
+
+  <div class="grid">
+
+    <!-- LEFT: Upload + Controls -->
+    <div class="panel">
+      <h2><span class="num">১</span> ছবি আপলোড করো</h2>
+
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="fileInput" accept="image/*">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4M12 4l-4 4M12 4l4 4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p class="main-txt">ছবি টেনে আনো বা ক্লিক করো</p>
+        <p class="sub-txt">JPG, PNG — যেকোনো সাইজ</p>
+        <p class="file-ok">✓ ছবি আপলোড হয়েছে — পাশে প্রিভিউ দেখো</p>
+      </div>
+
+      <div class="controls disabled" id="controls">
+        <div class="ctrl-row">
+          <label>জুম</label>
+          <input type="range" id="zoomSlider" min="100" max="300" value="100">
+        </div>
+        <p class="drag-hint">প্রিভিউতে ছবি ড্র্যাগ করে পজিশন ঠিক করো</p>
+
+        <h2 style="margin-top:24px;"><span class="num">২</span> ফ্রেম বেছে নাও</h2>
+        <div class="frame-select" id="frameSelect">
+          <div class="frame-opt active" data-frame="0">
+            <div class="swatch" style="background:linear-gradient(135deg,#3B0764,#BE185D 60%,#F472B6);"></div>
+            <div class="label">সানসেট</div>
+          </div>
+          <div class="frame-opt" data-frame="1">
+            <div class="swatch" style="background:linear-gradient(135deg,#1E1B4B,#5B21B6 55%,#C026D3);"></div>
+            <div class="label">মিডনাইট</div>
+          </div>
+          <div class="frame-opt" data-frame="2">
+            <div class="swatch" style="background:linear-gradient(135deg,#831843,#BE185D 50%,#FCD34D);"></div>
+            <div class="label">গোল্ডেন</div>
+          </div>
+        </div>
+
+        <button class="btn" id="downloadBtn" disabled>ডাউনলোড করো</button>
+        <button class="btn ghost" id="resetBtn">নতুন করে শুরু করো</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Preview -->
+    <div class="panel">
+      <h2><span class="num">৩</span> প্রিভিউ</h2>
+      <div class="preview-stage" id="stage">
+        <canvas id="canvas" width="1000" height="1000"></canvas>
+        <div class="preview-empty" id="emptyState">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+          ছবি আপলোড করলে এখানে প্রিভিউ দেখা যাবে
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    তৈরি হয়েছে উত্তরণ ২০২৬ ব্যাচের জন্য <span class="heart">♥</span> — কোনো ডেটা সার্ভারে সংরক্ষণ করা হয় না
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const stage = document.getElementById('stage');
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const emptyState = document.getElementById('emptyState');
+  const controls = document.getElementById('controls');
+  const zoomSlider = document.getElementById('zoomSlider');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const frameOpts = document.querySelectorAll('.frame-opt');
+
+  const SIZE = 1000; // internal canvas resolution
+  let img = null;
+  let imgState = { scale: 1, baseScale: 1, offsetX: 0, offsetY: 0 };
+  let activeFrame = 0;
+  let dragging = false;
+  let lastX = 0, lastY = 0;
+
+  const FRAME_THEMES = [
+    { name: 'sunset',   colors: ['#3B0764', '#BE185D', '#F472B6'], gold:'#FCD34D' },
+    { name: 'midnight', colors: ['#1E1B4B', '#5B21B6', '#C026D3'], gold:'#F0ABFC' },
+    { name: 'golden',   colors: ['#831843', '#BE185D', '#FCD34D'], gold:'#FFF7CC' }
+  ];
+
+  const EVENT_TITLE = 'উত্তরণ ২০২৬';
+  const EVENT_SUB = 'স্মৃতি থেকে স্বপ্নে';
+  const EVENT_TAG = 'ফেয়ারওয়েল · ২৫ জুন';
+  const BATCH_LABEL = 'ব্যাচ ৭';
+  const COLLEGE_NAME = 'ফটিকছড়ি সরকারি কলেজ';
+
+  document.fonts.ready.then(()=>{ if(img) draw(); });
+  // Safety net: some browsers resolve fonts.ready before the Bengali
+  // webfont is actually painted on first use. Re-draw shortly after
+  // load in case the very first render used a fallback glyph.
+  window.addEventListener('load', ()=> setTimeout(()=>{ if(img) draw(); }, 350));
+
+  function openFilePicker(){ fileInput.click(); }
+  dropzone.addEventListener('click', openFilePicker);
+  ['dragover','dragenter'].forEach(ev=>{
+    dropzone.addEventListener(ev, e=>{ e.preventDefault(); dropzone.classList.add('drag'); });
+  });
+  ['dragleave','dragend','drop'].forEach(ev=>{
+    dropzone.addEventListener(ev, e=>{ e.preventDefault(); dropzone.classList.remove('drag'); });
+  });
+  dropzone.addEventListener('drop', e=>{
+    const f = e.dataTransfer.files[0];
+    if(f) loadFile(f);
+  });
+  fileInput.addEventListener('change', e=>{
+    const f = e.target.files[0];
+    if(f) loadFile(f);
+  });
+
+  function loadFile(file){
+    if(!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = e=>{
+      const image = new Image();
+      image.onload = ()=>{
+        img = image;
+        const minDim = Math.min(img.width, img.height);
+        imgState.baseScale = SIZE / minDim;
+        imgState.scale = 1;
+        imgState.offsetX = 0;
+        imgState.offsetY = 0;
+        zoomSlider.value = 100;
+        dropzone.classList.add('has-file');
+        controls.classList.remove('disabled');
+        downloadBtn.disabled = false;
+        emptyState.style.display = 'none';
+        draw();
+      };
+      image.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function drawRoundedRectClip(c, x, y, w, h, r){
+    c.beginPath();
+    c.moveTo(x+r, y);
+    c.arcTo(x+w, y, x+w, y+h, r);
+    c.arcTo(x+w, y+h, x, y+h, r);
+    c.arcTo(x, y+h, x, y, r);
+    c.arcTo(x, y, x+w, y, r);
+    c.closePath();
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,SIZE,SIZE);
+    ctx.save();
+    drawRoundedRectClip(ctx, 0, 0, SIZE, SIZE, 28);
+    ctx.clip();
+
+    // background fallback
+    ctx.fillStyle = '#1c1622';
+    ctx.fillRect(0,0,SIZE,SIZE);
+
+    if(img){
+      const totalScale = imgState.baseScale * imgState.scale;
+      const w = img.width * totalScale;
+      const h = img.height * totalScale;
+      const cx = SIZE/2 + imgState.offsetX;
+      const cy = SIZE/2 + imgState.offsetY;
+      ctx.drawImage(img, cx - w/2, cy - h/2, w, h);
+    }
+
+    drawCapBadge();
+    drawBanner();
+    ctx.restore();
+
+    // outer border glow
+    ctx.save();
+    drawRoundedRectClip(ctx, 1, 1, SIZE-2, SIZE-2, 27);
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgba(253,244,255,0.18)';
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawCapBadge(){
+    const theme = FRAME_THEMES[activeFrame];
+    const r = SIZE * 0.058;           // badge radius
+    const cx = SIZE - r - SIZE*0.045; // top-right corner, inset
+    const cy = r + SIZE*0.045;
+
+    // circular badge background
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI*2);
+    const badgeGrad = ctx.createLinearGradient(cx-r, cy-r, cx+r, cy+r);
+    badgeGrad.addColorStop(0, theme.colors[0]);
+    badgeGrad.addColorStop(1, theme.colors[1]);
+    ctx.fillStyle = badgeGrad;
+    ctx.fill();
+    ctx.lineWidth = SIZE*0.006;
+    ctx.strokeStyle = theme.gold;
+    ctx.globalAlpha = 0.9;
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+    ctx.restore();
+
+    // --- graduation cap icon, drawn flat & simple ---
+    // Scale icon relative to badge radius
+    const s = r * 0.62; // icon half-width unit
+    ctx.save();
+    ctx.translate(cx, cy - r*0.06);
+
+    // cap board (diamond)
+    ctx.beginPath();
+    ctx.moveTo(0, -s*0.55);
+    ctx.lineTo(s*1.05, 0);
+    ctx.lineTo(0, s*0.55);
+    ctx.lineTo(-s*1.05, 0);
+    ctx.closePath();
+    ctx.fillStyle = theme.gold;
+    ctx.fill();
+
+    // cap base (rounded band under the diamond)
+    ctx.beginPath();
+    ctx.moveTo(-s*0.5, s*0.18);
+    ctx.quadraticCurveTo(0, s*0.62, s*0.5, s*0.18);
+    ctx.lineTo(s*0.5, s*0.40);
+    ctx.quadraticCurveTo(0, s*0.85, -s*0.5, s*0.40);
+    ctx.closePath();
+    ctx.fillStyle = '#FFFFFF';
+    ctx.globalAlpha = 0.95;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // tassel: small cord + bead, hanging off the right tip
+    ctx.beginPath();
+    ctx.moveTo(s*1.0, -s*0.02);
+    ctx.lineTo(s*0.92, s*0.62);
+    ctx.lineWidth = s*0.10;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#FFFFFF';
+    ctx.globalAlpha = 0.95;
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+
+    ctx.beginPath();
+    ctx.arc(s*0.90, s*0.74, s*0.13, 0, Math.PI*2);
+    ctx.fillStyle = theme.gold;
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  function drawBanner(){
+    const theme = FRAME_THEMES[activeFrame];
+    const bannerH = SIZE * 0.26;
+    const y0 = SIZE - bannerH;
+
+    // diagonal ribbon cut at the top edge of the banner
+    const cut = bannerH * 0.28;
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(0, y0 + cut);
+    ctx.lineTo(SIZE, y0);
+    ctx.lineTo(SIZE, SIZE);
+    ctx.lineTo(0, SIZE);
+    ctx.closePath();
+    ctx.clip();
+
+    const grad = ctx.createLinearGradient(0, y0, SIZE, SIZE);
+    grad.addColorStop(0, theme.colors[0]);
+    grad.addColorStop(0.55, theme.colors[1]);
+    grad.addColorStop(1, theme.colors[2]);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, y0 - cut, SIZE, bannerH + cut);
+
+    // subtle scattered confetti dots for texture
+    ctx.globalAlpha = 0.18;
+    const seedPositions = [
+      [60,SIZE-30],[140,SIZE-90],[220,SIZE-50],[320,SIZE-110],[420,SIZE-40],
+      [560,SIZE-95],[660,SIZE-35],[760,SIZE-100],[860,SIZE-55],[930,SIZE-20],
+      [40,SIZE-130],[900,SIZE-130]
+    ];
+    seedPositions.forEach((p,i)=>{
+      ctx.beginPath();
+      ctx.fillStyle = i%2===0 ? '#ffffff' : theme.gold;
+      ctx.arc(p[0], p[1], 4.5, 0, Math.PI*2);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    ctx.restore();
+
+    // thin gold rule along the diagonal cut
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(0, y0 + cut);
+    ctx.lineTo(SIZE, y0);
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = theme.gold;
+    ctx.globalAlpha = 0.85;
+    ctx.stroke();
+    ctx.restore();
+
+    // text block — 4 lines stacked from bottom up:
+    // college+batch (bottom) -> tag/date -> sub (large) -> event title (top)
+    const padX = SIZE * 0.065;
+    const baseY = SIZE - bannerH*0.10;
+
+    ctx.textBaseline = 'alphabetic';
+    ctx.textAlign = 'left';
+
+    // College + Batch line (bottom-most, small caps style)
+    ctx.font = `600 ${Math.round(SIZE*0.024)}px 'Noto Sans Bengali', sans-serif`;
+    ctx.fillStyle = 'rgba(255,255,255,0.80)';
+    ctx.fillText(`${COLLEGE_NAME}  ·  ${BATCH_LABEL}`, padX, baseY);
+
+    // tag line (date)
+    ctx.font = `500 ${Math.round(SIZE*0.022)}px 'Noto Sans Bengali', sans-serif`;
+    ctx.fillStyle = 'rgba(255,255,255,0.65)';
+    ctx.fillText(EVENT_TAG, padX, baseY - SIZE*0.040);
+
+    // Sub title (large, gold)
+    ctx.font = `700 ${Math.round(SIZE*0.050)}px 'Noto Sans Bengali', sans-serif`;
+    ctx.fillStyle = theme.gold;
+    ctx.fillText(EVENT_SUB, padX, baseY - SIZE*0.092);
+
+    // Event name (smaller, white, above)
+    ctx.font = `600 ${Math.round(SIZE*0.028)}px 'Noto Sans Bengali', sans-serif`;
+    ctx.fillStyle = 'rgba(255,255,255,0.92)';
+    ctx.fillText(EVENT_TITLE, padX, baseY - SIZE*0.152);
+  }
+
+  // ---- Drag to reposition ----
+  function getPoint(e){
+    if(e.touches && e.touches[0]) return {x:e.touches[0].clientX, y:e.touches[0].clientY};
+    return {x:e.clientX, y:e.clientY};
+  }
+  function startDrag(e){
+    if(!img) return;
+    dragging = true;
+    stage.classList.add('grabbing');
+    const p = getPoint(e);
+    lastX = p.x; lastY = p.y;
+  }
+  function moveDrag(e){
+    if(!dragging || !img) return;
+    const p = getPoint(e);
+    const rect = stage.getBoundingClientRect();
+    const scaleRatio = SIZE / rect.width;
+    imgState.offsetX += (p.x - lastX) * scaleRatio;
+    imgState.offsetY += (p.y - lastY) * scaleRatio;
+    lastX = p.x; lastY = p.y;
+    draw();
+  }
+  function endDrag(){
+    dragging = false;
+    stage.classList.remove('grabbing');
+  }
+  stage.addEventListener('mousedown', startDrag);
+  window.addEventListener('mousemove', moveDrag);
+  window.addEventListener('mouseup', endDrag);
+  stage.addEventListener('touchstart', startDrag, {passive:true});
+  stage.addEventListener('touchmove', e=>{ e.preventDefault(); moveDrag(e); }, {passive:false});
+  stage.addEventListener('touchend', endDrag);
+
+  // pinch / wheel zoom
+  stage.addEventListener('wheel', e=>{
+    if(!img) return;
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -5 : 5;
+    let newZoom = parseInt(zoomSlider.value) + delta;
+    newZoom = Math.max(100, Math.min(300, newZoom));
+    zoomSlider.value = newZoom;
+    imgState.scale = newZoom/100;
+    draw();
+  }, {passive:false});
+
+  zoomSlider.addEventListener('input', ()=>{
+    imgState.scale = zoomSlider.value/100;
+    draw();
+  });
+
+  frameOpts.forEach(opt=>{
+    opt.addEventListener('click', ()=>{
+      frameOpts.forEach(o=>o.classList.remove('active'));
+      opt.classList.add('active');
+      activeFrame = parseInt(opt.dataset.frame);
+      draw();
+    });
+  });
+
+  downloadBtn.addEventListener('click', ()=>{
+    if(!img) return;
+    const link = document.createElement('a');
+    link.download = 'Uttoron2026_Farewell.png';
+    link.href = canvas.toDataURL('image/png', 1.0);
+    link.click();
+  });
+
+  resetBtn.addEventListener('click', ()=>{
+    img = null;
+    fileInput.value = '';
+    dropzone.classList.remove('has-file');
+    controls.classList.add('disabled');
+    downloadBtn.disabled = true;
+    emptyState.style.display = 'flex';
+    ctx.clearRect(0,0,SIZE,SIZE);
+  });
+
+})();
+</script>
+
+</body>
+</html>
